@@ -1,24 +1,17 @@
 {
-  "name": "EiotHack — Segway & Ninebot Controller",
-  "short_name": "EH",
-  "description": "EiotHack EH — Минималистичный пульт управления для самокатов Ninebot и Segway IoT.",
-  "start_url": "https://nelozx026-cmyk.github.io/EiotHack/index.html",
-  "scope": "https://nelozx026-cmyk.github.io/EiotHack/",
+  "name": "EiotHack",
+  "short_name": "EiotHack",
+  "description": "пульт управления для самокатов Segway IoT с подключением по Bluetooth.",
+  "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#030305",
+  "theme_color": "#030305",
   "icons": [
     {
-      "src": "https://nelozx026-cmyk.github.io/EiotHack/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "https://nelozx026-cmyk.github.io/EiotHack/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' fill='%23030305'/&gt;&lt;circle cx='50' cy='50' r='35' fill='none' stroke='%2300a3ff' stroke-width='8'/&gt;&lt;circle cx='50' cy='50' r='10' fill='%23ffffff'/&gt;&lt;/svg&gt;",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]
