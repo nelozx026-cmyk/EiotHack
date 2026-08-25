@@ -1,0 +1,18 @@
+{
+  "name": "EiotHack — Segway & Ninebot Controller",
+  "short_name": "EiotHack",
+  "description": "Минималистичный пульт управления для самокатов Ninebot и Segway IoT с подключением по Bluetooth.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#030305",
+  "theme_color": "#030305",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23030305'/><circle cx='50' cy='50' r='35' fill='none' stroke='%2300a3ff' stroke-width='8'/><circle cx='50' cy='50' r='10' fill='%23ffffff'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

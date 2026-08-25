@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>EiotHack version 1.0 (alpha test)</title>
+  <meta name="theme-color" content="#18181c">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="mobile-container">
+    
+    <!-- ====================================================================
+         SCREEN 1: HOME SCREEN
+         ==================================================================== -->
+    <section class="screen screen-home active" id="screenHome">
+      <div class="home-content">
+        <h1 class="brand-title">EiotHack</h1>
+        <p class="brand-version">version 1.0 (alpha test)</p>
+      </div>
+
+      <div class="home-bottom-actions">
+        <button class="btn btn-pill btn-white" id="btnGoSettings">Settings</button>
+        <button class="btn btn-pill btn-white" id="btnGoStart">Start</button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 2: SETTINGS SCREEN
+         ==================================================================== -->
+    <section class="screen screen-settings" id="screenSettings">
+      <header class="screen-header">
+        <button class="btn-back" id="btnSettingsBack">&larr;</button>
+        <h2>Settings</h2>
+      </header>
+
+      <div class="settings-body">
+        <div class="setting-group">
+          <label for="bleKeyInput" class="setting-label">Ninebot / Segway BLE Key</label>
+          <p class="setting-desc">Укажите BLE Key (ключ шифрования) вашего самоката, необходимый для разблокировки/блокировки.</p>
+          <input type="text" id="bleKeyInput" class="input-text" placeholder="3b9c7e01f28a45b6..." autocomplete="off" spellcheck="false">
+        </div>
+
+        <button class="btn btn-pill btn-white" id="btnSaveSettings" style="margin-top: 30px;">Save Settings</button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 3: DEVICE SCANNER SCREEN (IN-APP BLE SCANNER)
+         ==================================================================== -->
+    <section class="screen screen-scan" id="screenScan">
+      <header class="screen-header">
+        <button class="btn-back" id="btnScanBack">&larr;</button>
+        <h2>BLE Scanner</h2>
+      </header>
+
+      <!-- Scanning Progress Indicator -->
+      <div class="inapp-scan-progress" id="scanProgress" style="display: none;">
+        <div class="pulse-ring"></div>
+        <span id="scanProgressText">Сканирование BLE эфира поблизости...</span>
+      </div>
+
+      <div class="scan-status-alert" id="scanAlert" style="display: none;">
+        <span class="alert-icon">⚠️</span>
+        <span id="scanAlertText">Включите Bluetooth на телефоне и убедитесь, что самокат включен поблизости.</span>
+      </div>
+
+      <div class="device-list-container">
+        <ul class="device-list" id="deviceList">
+          <!-- Found real devices render directly inside this application list -->
+        </ul>
+        <div class="empty-list-notice" id="emptyListNotice">
+          Нажмите кнопку <b>Scan</b> внизу, чтобы запустить поиск устройств прямо в приложении.
+        </div>
+      </div>
+
+      <div class="scan-bottom-bar">
+        <button class="btn btn-pill btn-white" id="btnTriggerScan">Scan</button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SCREEN 4: DEVICE CONTROL SCREEN
+         ==================================================================== -->
+    <section class="screen screen-control" id="screenControl">
+      <!-- Status Bar Header -->
+      <div class="control-header-status">
+        <button class="btn-back" id="btnControlBack">&larr;</button>
+        <div class="status-lines">
+          <div class="status-line-1" id="ctrlStatusText">Started</div>
+          <div class="status-line-2" id="ctrlSubStatusText">Connecting to: <span id="ctrlMacText">No Device</span></div>
+        </div>
+      </div>
+
+      <!-- Basic Controls Container -->
+      <div class="basic-controls-wrapper">
+        <button class="btn btn-control-pill" id="btnUnlock">Unlock</button>
+        <button class="btn btn-control-pill" id="btnLock">Lock</button>
+
+        <!-- Basic Settings Box -->
+        <div class="basic-settings-box">
+          <h3 class="box-title">Basic Settings:</h3>
+
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="speedMode" value="mode1">
+              <span class="radio-custom"></span>
+              <span class="radio-label">Mode 1</span>
+            </label>
+
+            <label class="radio-item">
+              <input type="radio" name="speedMode" value="mode2">
+              <span class="radio-custom"></span>
+              <span class="radio-label">Mode 2</span>
+            </label>
+
+            <label class="radio-item">
+              <input type="radio" name="speedMode" value="mode3" checked>
+              <span class="radio-custom"></span>
+              <span class="radio-label">Mode 3</span>
+            </label>
+          </div>
+
+          <!-- Toggles -->
+          <div class="toggle-group">
+            <div class="toggle-row">
+              <span class="toggle-label">Headlight</span>
+              <label class="switch">
+                <input type="checkbox" id="toggleHeadlight" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <span class="toggle-label">Throttle</span>
+              <label class="switch">
+                <input type="checkbox" id="toggleThrottle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-control-pill btn-inner" id="btnSendToScooter">Send to Scooter</button>
+        </div>
+
+        <button class="btn btn-control-pill" id="btnEjectBattery">Eject Battery</button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="ninebot-protocol.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
