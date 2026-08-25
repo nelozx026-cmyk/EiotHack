@@ -1,0 +1,18 @@
+{
+  "appId": "com.eiothack.app",
+  "appName": "EiotHack",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "BluetoothLe": {
+      "displayStrings": {
+        "scanning": "Сканирование Ninebot / Segway IoT...",
+        "cancel": "Отмена",
+        "availableDevices": "Найденные Bluetooth устройства"
+      }
+    }
+  }
+}
